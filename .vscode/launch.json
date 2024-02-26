@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "node",
+      "request": "launch",
+      "args": [],
+      "cwd": "/home/liene/Projects/prog2-md1/HitGame",
+      "program": "${workspaceFolder}/HitGame/build/HitGameExecutable",
+      "externalConsole": true // why?
+    }
+  ]
+}

@@ -1,5 +1,5 @@
-#include "Character.h";
-#include <iostream>;
+#include "Character.h"
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -15,24 +15,33 @@ Character::Character(string characterName, int lifePoints)
 
 Character::~Character() { cout << "Game over for " << characterName; }
 
+void Character::go(char move) {
+  if (moveCount < 10 &&
+      (move == 't' || move == 'b' || move == 'l' || move == 'r')) {
+    movePath[moveCount] = move;
+    moveCount++;
+  } else {
+    if (moveCount >= 10) {
+      cout << "No more space to record moves." << endl;
+    } else {
+      cout << "Invalid move. Please enter 't' for top, 'b' for bottom, 'l' for "
+              "left, or 'r' for right."
+           << endl;
+    }
+  }
+};
+
 bool Character::hit(int hitsTaken) {
 
   lifePoints -= hitsTaken;
-  bool isAlive = lifePoints > 0 && lifePoints <= 10 ? true : false;
+  bool isAlive = (lifePoints > 0) && (lifePoints <= 10);
+
+  cout << "Is the character alive? " << (isAlive ? "Yes" : "No") << endl;
 
   return isAlive;
 };
 
 int Character::getLife() { return lifePoints; };
-
-void Character::go(char) {
-  string move;
-  cout << "Which way do you want your character to move? The options are t for "
-          "top, "
-          "b for bottom, l for left and r for right";
-  cin >> move;
-  movePath; // figure out, how to add elements to it;
-};
 
 void Character::printCharacterInfo() {
   string characterState = lifePoints > 0 && lifePoints <= 10 ? "alive" : "dead";
