@@ -11,33 +11,13 @@
         "${workspaceFolder}/HitGame/Character.cpp",
         "-o",
         "${workspaceFolder}/HitGame/build/HitGameExecutable",
-        "-std=c++17" // Assuming you're using C++17 features
+        "-std=c++17"
       ],
       "group": {
         "kind": "build",
         "isDefault": true
-      },
-      "problemMatcher": ["$gcc"]
+      }
     }
-
-    // {
-    //     "label": "Build HitGame",
-    //     "type": "shell",
-    //     "command": "g++",
-    //     "args": [
-    //         "-g",
-    //         "${workspaceFolder}/IRobotMap/main.cpp",
-    //         "${workspaceFolder}/IRobotMap/Someclass.cpp",
-    //         "-o",
-    //         "${workspaceFolder}/IRobotMap/build/IRobotMapExecutable",
-    //         "-std=c++17" // Assuming you're using C++17 features
-    //     ],
-    //     "group": {
-    //         "kind": "build",
-    //         "isDefault": true
-    //     },
-    //     "problemMatcher": ["$gcc"]
-    // }
     // Add more tasks here for other projects as needed
   ]
 }

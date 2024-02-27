@@ -12,8 +12,7 @@ private:
 
   int lifePoints;
 
-  char movePath[10];
-  int moveCount = 0; // Keep track of the current number of moves
+  char movePath[10] = {};
 
 public:
   Character(string characterName, int lifePoints);
@@ -23,6 +22,9 @@ public:
   int getLife();
   void go(char move);
   void printCharacterInfo();
+  bool isAlive();
+  void printLife();
+  int moveCount = 0;
 };
 
 #endif

@@ -2,13 +2,29 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch with LLDB",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/HitGame/build/HitGameExecutable",
+      "args": [],
+      "cwd": "${workspaceFolder}/HitGame",
+      "preLaunchTask": "Build HitGame"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
-      "type": "node",
+      "type": "cppdbg",
       "request": "launch",
       "args": [],
       "cwd": "/home/liene/Projects/prog2-md1/HitGame",
-      "program": "${workspaceFolder}/HitGame/build/HitGameExecutable",
-      "externalConsole": true // why?
+      "program": "/home/liene/Projects/prog2-md1/HitGame/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
     }
   ]
 }
