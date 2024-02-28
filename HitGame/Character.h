@@ -7,23 +7,23 @@ using namespace std;
 class Character {
 
 private:
-  string characterName;
+  string name;
+  int life;
   string characterState;
 
-  int lifePoints;
-
-  char movePath[10] = {};
+  char path[10] = {};
 
 public:
-  Character(string characterName, int lifePoints);
+  Character(string name, int life);
   ~Character();
 
-  bool hit(int);
-  int getLife();
-  void go(char move);
-  void printCharacterInfo();
-  bool isAlive();
-  void printLife();
+  bool Hit(int);
+  int GetLife();
+  void Go(char move);
+  void PrintCharacter();
+  bool IsAlive();
+  void PrintLife();
+
   int moveCount = 0;
 };
 

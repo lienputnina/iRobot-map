@@ -3,38 +3,39 @@
 #include <string>
 using namespace std;
 
-// Constructor with an initialization list
-Character::Character(string characterNameP, int lifePointsP) {
-  lifePoints = lifePointsP > 10 ? 10 : lifePointsP;
-  characterName = characterNameP;
+Character::Character(string characterNameP, int lifeP) { // rename the P words
+  life = lifeP > 10 ? 10 : lifeP;
+  name = characterNameP;
   moveCount = 0;
 }
 
-Character::~Character() { cout << "Game over for " << characterName << endl; }
+Character::~Character() { cout << "Game over for " << name << endl; }
 
-void Character::go(char move) {
-  if (!isAlive()) {
-    cout << "Cannot move. " << characterName << " is dead." << endl;
+void Character::Go(char move) {
+  if (!IsAlive()) {
+    cout << "Cannot move. " << name << " is dead." << endl;
     return;
   }
 
+  // checking, whether move is legal
   bool isMoveLegal = move == 't' || move == 'b' || move == 'l' || move == 'r';
 
   if (isMoveLegal) {
     if (moveCount < 10) {
-      movePath[moveCount] = move;
+      path[moveCount] = move; // tajā pozicija, kurs moves tgd ir
     } else {
-      int length = sizeof(movePath);
+      int length = sizeof(path);
       // Shift moves array to the left by one
       for (int i = 0; i < length; i++) {
-        if (i == 0) {
+        if (i == 0) { // pirmo izlaižam, jo nav, kur aizbīdīt
           continue;
         }
 
-        movePath[i - 1] = movePath[i];
+        path[i - 1] = path[i]; // paņem patreizējās pozīcijas elementu (masīva
+                               // elementu) un ievietojam iepriekšējā pozīcijā
       }
 
-      movePath[length - 1] = move;
+      path[length - 1] = move; // saglabājam jauno gājienu
     }
     moveCount++;
   } else {
@@ -44,44 +45,43 @@ void Character::go(char move) {
   }
 };
 
-bool Character::hit(int hitsTaken) {
-  if (lifePoints <= 0) {
-    cout << "Cannot hit. " << characterName << " is already dead." << endl;
-    return false;
+bool Character::Hit(int hitsTaken) {
+  if (!IsAlive()) {
+    cout << "Cannot hit. " << name << " is already dead." << endl;
+    return false; // will this work correctly?
   }
 
-  lifePoints -= hitsTaken;
+  life -= hitsTaken;
 
   cout << "Character got " << hitsTaken << " hits." << endl;
-  cout << "Is the character alive? " << (isAlive() ? "Yes." : "No.") << endl;
+  cout << "Is the character alive? " << (IsAlive() ? "Yes." : "No.") << endl;
 
-  return isAlive();
+  return IsAlive();
 };
 
-bool Character::isAlive() { return lifePoints > 0 ? true : false; }
+bool Character::IsAlive() { return life > 0 ? true : false; }
 
-int Character::getLife() { return lifePoints; };
+int Character::GetLife() { return life; };
 
-void Character::printLife() {
-  if (isAlive()) {
-    cout << "Life points: " << lifePoints << endl;
+void Character::PrintLife() {
+  if (IsAlive()) {
+    cout << "Life points: " << life << endl;
   } else {
-    cout << characterName << " is dead." << endl;
+    cout << name << " is dead." << endl;
   }
 }
 
-void Character::printCharacterInfo() {
-  string characterState = isAlive() ? "alive" : "dead";
+void Character::PrintCharacter() {
+  string characterState = IsAlive() ? "alive" : "dead";
 
-  cout << "PrintCharacter: " << characterName << " is " << characterState
-       << endl;
-  if (isAlive()) {
-    cout << "life points: " << lifePoints << endl;
+  cout << "PrintCharacter: " << name << " is " << characterState << endl;
+  if (IsAlive()) {
+    cout << "Life points: " << life << endl;
   }
 
   cout << "Last 10 moves: ";
   for (int i = 0; i < moveCount; ++i) {
-    cout << movePath[i];
+    cout << path[i];
   }
 
   cout << endl;
