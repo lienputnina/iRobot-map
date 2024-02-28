@@ -15,8 +15,8 @@
       "type": "cppdbg",
       "request": "launch",
       "args": [],
-      "cwd": "/home/liene/Projects/prog2-md1/HitGame",
-      "program": "/home/liene/Projects/prog2-md1/HitGame/build/Debug/outDebug",
+      "cwd": "${workspaceFolder}/HitGame",
+      "program": "${workspaceFolder}/HitGame/build/Debug/outDebug",
       "MIMode": "gdb",
       "setupCommands": [
         {

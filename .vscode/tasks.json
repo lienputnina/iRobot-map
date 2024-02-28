@@ -8,9 +8,28 @@
       "args": [
         "-g",
         "${workspaceFolder}/HitGame/main.cpp",
-        "${workspaceFolder}/HitGame/Character.cpp",
+        "${workspaceFolder}/HitGame/Characterh.cpp",
         "-o",
         "${workspaceFolder}/HitGame/build/HitGameExecutable",
+        "-std=c++17"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build IRobot",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-g",
+        "${workspaceFolder}/IRobot/main.cpp",
+        "${workspaceFolder}/IRobot/iRoboth.cpp",
+        "${workspaceFolder}/IRobot/ProximitiSensor.cpp",
+        "${workspaceFolder}/IRobot/ProximitiSensorh.cpp",
+        "-o",
+        "${workspaceFolder}/IRobot/build/IRobotExecutable",
         "-std=c++17"
       ],
       "group": {
