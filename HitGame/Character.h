@@ -9,7 +9,6 @@ class Character {
 private:
   string name;
   int life;
-  string characterState;
 
   char path[10] = {};
 
@@ -23,7 +22,6 @@ public:
   void PrintCharacter();
   bool IsAlive();
   void PrintLife();
-
   int moveCount = 0;
 };
 
