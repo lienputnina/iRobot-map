@@ -2,22 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch with LLDB",
+      "name": "Launch IRobot",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/HitGame/build/HitGameExecutable",
+      "program": "${workspaceFolder}/IRobot/build/IRobotExecutable",
       "args": [],
-      "cwd": "${workspaceFolder}/HitGame",
-      "preLaunchTask": "Build HitGame"
+      "cwd": "${workspaceFolder}/IRobot",
+      "preLaunchTask": "Build IRobot"
     },
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
-      "cwd": "${workspaceFolder}/HitGame",
-      "program": "${workspaceFolder}/HitGame/build/Debug/outDebug",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "/home/liene/Projects/prog2-md1/IRobot",
+      "program": "/home/liene/Projects/prog2-md1/IRobot/build/Debug/outDebug",
       "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

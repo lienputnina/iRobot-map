@@ -1,6 +1,7 @@
 #ifndef IROBOT_H
 #define IROBOT_H
 
+#include "ProximitySensor.h"
 #include <string>
 using namespace std;
 
@@ -8,21 +9,19 @@ class iRobot {
 
 private:
   string model_name;
-  int leftSensor;
-  int rightSensor;
-  string alarm;
-  string map[10] = {}; // is this an array?
+  ProximitySensor *leftSensor;
+  ProximitySensor *rightSensor;
+  string alarm = "green"; // "red" / "green"
+  string map = "";
+
+  bool isRobotOn = false;
 
 public:
-  iRobot(string model_name, string alarm); // kas ir te?
+  iRobot(string model_name, int leftSerialNumber, int rightSerialNumber);
   ~iRobot();
-
-  bool SwitchOnOff(int leftSensor, int rightSensor);
-  int Run(int room);
+  void SwitchOnOff();
+  void Run(int room[10], int size);
   void PrintRobot();
-
-  int room[10] = {}; // declare here or in the method?
-  int turnCount = 0;
 };
 
 #endif
