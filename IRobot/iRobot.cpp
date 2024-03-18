@@ -9,13 +9,22 @@ iRobot::iRobot(string model_name_param, int leftSerialNumber,
   model_name = model_name_param;
 
   /*
-  Initializing the sensors as instances of the ProximitySensor class
+  Initializing the sensors as instances of the ProximitySensor class.
+  Assigning a space in memory for them without assigning a specific value.
+  The value of the memory area will be assigned upon calling the corresponding
+  functions
   */
+
   leftSensor = new ProximitySensor(leftSerialNumber);
   rightSensor = new ProximitySensor(rightSerialNumber);
 }
 
 // Freeing up memory after the sensors are no longer used
+/*
+Freeing up memory after the sensors are no longer used.
+Every time we initialize something with new, a space in memory is reserved, so
+we need to free up that space after the program ends.
+*/
 iRobot::~iRobot() {
   delete leftSensor;
   delete rightSensor;
@@ -26,7 +35,11 @@ void iRobot::SwitchOnOff() {
   string newState = isRobotOn == true ? "off" : "on";
 
   /*
-  Accessing the SetState method through pointers
+  Accessing the SetState method through pointers.
+  Since our sensor fields are pointers to a class instance, they can only access
+  members of that class through other pointers.
+  "Converting" the pointer of an object to an object and then calling the
+  objects method
   */
   leftSensor->SetState(newState);
   rightSensor->SetState(newState);
@@ -62,13 +75,13 @@ void iRobot::Run(int room[10], int size) {
 
     /*
     Checking for obstacles.
-    If there's an obstacle to the left and not to the right the robot moves to
+    If there's an obstacle to the left and not to the right, the robot moves to
     the right
 
-    If there's an obstacle to the right and no to the left the robot moves to
-    the right
+    If there's an obstacle to the right and not to the left, the robot moves to
+    the left
 
-    If there are no obstacles on both sides the robot moves forward.
+    If there are no obstacles on either side, the robot moves forward.
 
     If there are obstacles on both sides, the robot reaches a dead end and stops
     */
