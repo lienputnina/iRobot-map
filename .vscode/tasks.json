@@ -9,7 +9,7 @@
         "-g",
         "${workspaceFolder}/*.cpp",
         "-o",
-        "${workspaceFolder}/build/iRobotlExecutable"
+        "${workspaceFolder}/build/iRobotExecutable"
       ],
       "options": {
         "cwd": "${fileDirname}"

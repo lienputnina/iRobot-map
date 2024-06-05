@@ -6,8 +6,8 @@ using namespace std;
 int main() {
 
   /*
-Dividing the code for both robots in separate blocks for clarity.
-*/
+     Dividing the code for both robots in separate blocks for clarity.
+  */
 
   {
     /*
